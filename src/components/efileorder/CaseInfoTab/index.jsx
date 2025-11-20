@@ -65,7 +65,7 @@ const CaseInfoTab = ({ onNext, onBack }) => {
                                         value={field.value}
                                     >
                                         <FormControl>
-                                            <SelectTrigger>
+                                            <SelectTrigger className={"w-full"}>
                                                 <SelectValue placeholder="Select category" />
                                             </SelectTrigger>
                                         </FormControl>
@@ -94,7 +94,7 @@ const CaseInfoTab = ({ onNext, onBack }) => {
                                         disabled={!watchCategory}
                                     >
                                         <FormControl>
-                                            <SelectTrigger>
+                                            <SelectTrigger className={"w-full"}>
                                                 <SelectValue placeholder="Select type" />
                                             </SelectTrigger>
                                         </FormControl>
