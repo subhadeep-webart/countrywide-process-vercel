@@ -8,6 +8,7 @@ import { AlertDialog, AlertDialogAction, AlertDialogCancel, AlertDialogContent, 
 import { ALL_ACCOUNTS, CALIFORNIA_COUNTIES } from "@/utils/efileutils";
 import { useForm } from "react-hook-form";
 import { useEffect, useState } from "react";
+import ServiceAfterFilingSection from "./ServiceAfterFilingSection";
 
 const OrderInfoTab = ({ onNext }) => {
     const [showLAModal, setShowLAModal] = useState(false);
@@ -66,14 +67,14 @@ const OrderInfoTab = ({ onNext }) => {
                                 </div>
                             </CardHeader>
                             <CardContent className="space-y-4">
-                                <div className="space-y-2">
+                                <div className="space-y-2 w-full">
                                     <Label htmlFor="account-select" className="text-base font-semibold">
                                         Account Selection *
                                     </Label>
                                     <Select value={selectedAccountId} onValueChange={setSelectedAccountId}>
                                         <SelectTrigger
                                             id="account-select"
-                                            className="h-12 bg-background border-2 hover:border-primary/50 transition-colors"
+                                            className="!h-12 bg-background border-2 hover:border-primary/50 transition-colors w-full"
                                         >
                                             <SelectValue placeholder="Choose an account to file under..." />
                                         </SelectTrigger>
@@ -91,10 +92,11 @@ const OrderInfoTab = ({ onNext }) => {
                                         </SelectContent>
                                     </Select>
                                     {/* {!selectedAccountId && (
-                                        <p className="text-sm text-amber-600 dark:text-amber-400 font-medium">
-                                            ⚠️ Please select an account before proceeding
-                                        </p>
+                                       
                                     )} */}
+                                    <p className="text-sm text-amber-600 dark:text-amber-400 font-medium">
+                                        ⚠️ Please select an account before proceeding
+                                    </p>
                                 </div>
                             </CardContent>
                         </Card>
@@ -110,7 +112,7 @@ const OrderInfoTab = ({ onNext }) => {
                                         <FormLabel>Select State *</FormLabel>
                                         <Select onValueChange={field.onChange} defaultValue={field.value}>
                                             <FormControl>
-                                                <SelectTrigger>
+                                                <SelectTrigger className={"w-full py-2"}>
                                                     <SelectValue placeholder="Select state" />
                                                 </SelectTrigger>
                                             </FormControl>
@@ -135,7 +137,7 @@ const OrderInfoTab = ({ onNext }) => {
                                         <FormLabel>Select County *</FormLabel>
                                         <Select onValueChange={field.onChange} value={field.value}>
                                             <FormControl>
-                                                <SelectTrigger>
+                                                <SelectTrigger className={"w-full py-2"}>
                                                     <SelectValue placeholder="Select county" />
                                                 </SelectTrigger>
                                             </FormControl>
@@ -187,9 +189,9 @@ const OrderInfoTab = ({ onNext }) => {
                         />
                     </Card>
 
-                    {/* {watchFilingType === "Case Initiation" && showServiceSection && (
+                    {watchFilingType === "Case Initiation" && showServiceSection && (
                         <ServiceAfterFilingSection form={form} />
-                    )} */}
+                    )}
 
                     <div className="flex justify-end">
                         <Button type="button" onClick={onNext}>Continue to Case Info</Button>

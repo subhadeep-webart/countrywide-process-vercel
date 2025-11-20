@@ -19,6 +19,7 @@ import { Avatar, AvatarFallback } from "./ui/avatar";
 import { AvatarImage } from "@radix-ui/react-avatar";
 import { ThemeToggle } from "./theme-switcher";
 import { useTheme } from "next-themes";
+import useIsDark from "@/hooks/useIsDark";
 
 export function SiteHeader() {
   const { theme } = useTheme();
@@ -46,7 +47,8 @@ export function SiteHeader() {
     { icon: Settings, label: "Settings", path: "/settings" },
   ];
 
-  const isDark = theme === "dark" || (theme === "system" && window.matchMedia("(prefers-color-scheme: dark)").matches);
+  const isDark = useIsDark(theme);
+  console.log("Dark=====>", isDark);
 
   return (
     <header

@@ -20,10 +20,12 @@ import { toast } from "sonner";
 import CaseParticipantsTab from "@/components/efileorder/CaseParticipantsTab";
 import DocumentsTab from "@/components/efileorder/DocumentsTab";
 import OrderDetailsTab from "@/components/efileorder/OrderDetailsTab";
+import { useRouter } from "next/navigation";
 
 export default function EfileOrder() {
     // const navigate = useNav();
     // const { toast } = useToas;
+    const router = useRouter();
     const { isCollapsed } = useSidebar();
     const [activeTab, setActiveTab] = useState("order-info");
     const [efileOrderId, setEfileOrderId] = useState(null);
@@ -36,7 +38,7 @@ export default function EfileOrder() {
     };
 
     return (
-        <div className="flex min-h-screen w-full bg-background pt-16">
+        <div className="flex min-h-screen w-full bg-background pt-4">
             <div
                 className={
                     "flex-1 flex flex-col transition-all duration-300"}
@@ -47,7 +49,8 @@ export default function EfileOrder() {
                             <Button
                                 variant="ghost"
                                 size="sm"
-                            // onClick={() => navigate(-1)}
+                                // onClick={() => navigate(-1)}
+                                onClick={() => router.back()}
                             >
                                 <ArrowLeft className="h-4 w-4 mr-2" />
                                 Back

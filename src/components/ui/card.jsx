@@ -32,17 +32,24 @@ function CardHeader({
   );
 }
 
-function CardTitle({
-  className,
-  ...props
-}) {
-  return (
-    <div
-      data-slot="card-title"
-      className={cn("leading-none font-semibold", className)}
-      {...props} />
-  );
-}
+// function CardTitle({
+//   className,
+//   ...props
+// }) {
+//   return (
+//     <div
+//       data-slot="card-title"
+//       className={cn("leading-none font-semibold", className)}
+//       {...props} />
+//   );
+// }
+
+const CardTitle = React.forwardRef(
+  ({ className, ...props }, ref) => (
+    <h3 ref={ref} className={cn("text-2xl font-semibold leading-none tracking-tight", className)} {...props} />
+  ),
+);
+CardTitle.displayName = "CardTitle";
 
 function CardDescription({
   className,
